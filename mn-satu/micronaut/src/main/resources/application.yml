@@ -1,0 +1,24 @@
+#micronaut:
+  #application:
+   # name: micronaut
+
+   ---
+micronaut:
+  application:
+    name: steamdom-master
+
+---
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:26257/steamdom_master
+    driverClassName: org.postgresql.Driver
+    username: root
+    password: ''
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+
+
