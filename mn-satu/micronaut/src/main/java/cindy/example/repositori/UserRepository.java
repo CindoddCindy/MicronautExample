@@ -27,7 +27,7 @@ public class UserRepository implements UserRepositoryInterface {
     @Override
     @Transactional(readOnly = true)
     public Long size() {
-        Long count = manager.createQuery("select count(*) from Course where deleted_at IS NULL", Long.class).getSingleResult();
+        Long count = manager.createQuery("select count(*) from User where deleted_at IS NULL", Long.class).getSingleResult();
         return count;
     }
 
@@ -35,7 +35,7 @@ public class UserRepository implements UserRepositoryInterface {
     @Transactional
     public List<User> findAll(int page, int limit) {
         TypedQuery<User> query = manager
-                .createQuery("from Course where deleted_at IS NULL", User.class)
+                .createQuery("from User where deleted_at IS NULL", User.class)
                 .setFirstResult(page > 1 ? page * limit - limit : 0)
                 .setMaxResults(limit);
         return query.getResultList();
@@ -64,9 +64,9 @@ public class UserRepository implements UserRepositoryInterface {
     public boolean update(@NotNull Long id, String name, String password) {
         try {
 
-            Course c = manager.find(User.class, id);
-            if (name.equals("-")==false) c.setCode(name);
-            if (password.equals("-")==false) c.setName(password);
+            User c = manager.find(User.class, id);
+            if (name.equals("-")==false) c.setName(name);
+            if (password.equals("-")==false) c.setPassword(password);
           //  if (grade != 0) c.setGrade(grade);
             c.setUpdated_At(new Date());
             return true;

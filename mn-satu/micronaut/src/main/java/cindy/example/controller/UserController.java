@@ -18,7 +18,7 @@ import io.micronaut.http.annotation.QueryValue;
 import cindy.example.model.User;
 import cindy.example.repositori.UserRepositoryInterface;
 
-@Controller("/course")
+@Controller("/users")
 public class UserController{
 
     private UserRepositoryInterface repository;
@@ -56,7 +56,7 @@ public class UserController{
     @Put(consumes=MediaType.APPLICATION_JSON)
     public String update(@Body User c) {
         HashMap<String, Object> data = new HashMap<>();
-        if (repository.update(c.getId(), c.getCode(), c.getName(), c.getGrade())) {
+        if (repository.update(c.getId(), c.getPassword(), c.getName())) {
         // if (repository.updateCode(c.getId(), c.getCode())) {
             data.put("status", "ok");
         } else {

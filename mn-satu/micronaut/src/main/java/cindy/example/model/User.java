@@ -16,22 +16,22 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "course")
+@Table(name = "users")
 public class User{
 
-    /*
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    */
+    
 
     @NotNull (message = "nama harus diisi.")
     @Column(name = "nama")
-    private String nama;
+    private String name;
 
-    @NotNull (password = "password harus diisi.")
+    @NotNull (message = "password harus diisi.")
     @Column(name = "password")
     private String password;
 
@@ -49,7 +49,7 @@ public class User{
     @Column(name = "deleted_at")
     private Date deleted_at;
 
-    /*
+    
 
     public Long getId() {
         return id;
@@ -58,7 +58,7 @@ public class User{
     public void setId(Long id) {
         this.id = id;
     }
-    */
+    
 
     public String getName() {
         return name;

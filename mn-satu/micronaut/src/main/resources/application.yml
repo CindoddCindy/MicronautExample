@@ -1,16 +1,13 @@
-#micronaut:
-  #application:
-   # name: micronaut
-
-   ---
 micronaut:
   application:
-    name: steamdom-master
+    name: micronaut
+  server:
+    port: 8081
 
 ---
 datasources:
   default:
-    url: jdbc:postgresql://localhost:26257/steamdom_master
+    url: jdbc:postgresql://localhost:26257/cindy
     driverClassName: org.postgresql.Driver
     username: root
     password: ''
@@ -20,5 +17,4 @@ jpa:
       hibernate:
         hbm2ddl:
           auto: update
-
 
